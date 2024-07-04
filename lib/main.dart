@@ -22,7 +22,7 @@ class introApp extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.underline,
-                  letterSpacing: 2,
+                  letterSpacing: 1,
                   wordSpacing: 11,
                   overflow: TextOverflow.fade,
                 ),
