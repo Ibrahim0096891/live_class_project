@@ -19,7 +19,7 @@ class introApp extends StatelessWidget {
                 textAlign: TextAlign.start,
                 maxLines: 1,
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 32,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.underline,
                   letterSpacing: 1,
