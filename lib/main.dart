@@ -1,32 +1,50 @@
+
+
+// Current SDK version: 3.22.1
 import 'package:flutter/material.dart';
 
+// image, materialApp, scaffold, Icons,
+// buttons(ElevatedButton, IconButton, TextButton, GestureDetector, InkWell)
+
 void main() {
-  runApp(introApp());
+  runApp(IntroApp());
 }
 
-class introApp extends StatelessWidget {
+class IntroApp extends StatelessWidget {
+  const IntroApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.blueAccent,
-              title: Text('Home'),
-            ),
-            body: Center(
-              child: Text(
-                'Hello World. We are coming Bangladesh',
-                textAlign: TextAlign.start,
-                maxLines: 1,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
-                  letterSpacing: 1,
-                  wordSpacing: 11,
-                  overflow: TextOverflow.fade,
-                ),
-              ),
-            )));
+      debugShowCheckedModeBanner: true,
+      home: Home(),
+      title: 'Intro app',
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: Text('Home'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: InkWell(
+          onTap: () {
+            print('Single tap');
+          },
+          onDoubleTap: () {
+            print('Double tap');
+          },
+          child: Text('normal text'),
+        ),
+      ),
+    );
   }
 }
