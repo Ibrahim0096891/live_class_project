@@ -21,18 +21,33 @@ class IntroApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<String> friendList = [
+    'Fahim',
+    'Arif',
+    'Shakib',
+    'Toha',
+    'Asif',
+    'Ibrahim',
+    'Sajid'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.green,
-        appBar: AppBar(
-          title: Text('Home'),
-          backgroundColor: Colors.blue,
-        ),
-       /* body: Column(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text('Home'),
+        backgroundColor: Colors.blue,
+      ),
+      /* body: Column(
           // mainAxisAlignment: ,
           // crossAxisAlignment: ,
           mainAxisSize: MainAxisSize.max,
@@ -151,7 +166,7 @@ class Home extends StatelessWidget {
           ],
         ),
       ),*/
-      body: SingleChildScrollView(
+      /* body: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
@@ -191,7 +206,150 @@ class Home extends StatelessWidget {
             )
           ],
         ),
+      ),*/
+      /* body: ListView(
+        children: [
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 1'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 2'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 3'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 4'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 5'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 6'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 7'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 8'),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Text('Box 9'),
+            ),
+
+        ],
+      ),*/
+      /* body: ListView.builder(
+          itemCount: 1000,
+        itemBuilder: (context, index){
+            return SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(child: Text(index.toString())),
+            );
+        },
+      ),*/
+      /*body: ListView.builder(
+        itemCount: friendList.length,
+        itemBuilder: (context, index){
+          return Column(
+              children: [
+                Text(friendList[index])
+              ]
+          );
+      },
+      ),*/
+      body: ListView.separated(
+        itemCount: friendList.length,
+        itemBuilder: (context, index) {
+          return Column(children: [
+            ListTile(
+              tileColor: Colors.black12,
+              title: Text(friendList[index]),
+              subtitle: Text('School Friend'),
+              trailing: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+               children : [
+                 Icon(Icons.radio_button_checked,
+                  size: 15,
+                  color: Colors.green,
+                ),
+               Text('Active')]
+              ),
+              leading: Text(
+                (index + 1).toString(),
+              ),
+              onTap: () {
+                print('$index item tapped');
+              },
+              titleTextStyle: TextStyle(
+                fontSize: 20,
+                color: Colors.red,
+              ),
+            ),
+          ]);
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            height: 40,
+            color: Colors.grey,
+            thickness: 2,
+            endIndent: 20,
+            indent: 20,
+          );
+          // return Text('This is $index th separator');
+        },
       ),
+      /* body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8,
+            // childAspectRatio: 1
+          ),
+          itemCount: friendList.length,
+          itemBuilder: (Contex, index) {
+            return Column(
+              children: [
+                Text(index.toString()),
+                Text(friendList[index]),
+              ],
+            );
+          }),*/
     );
   }
 }
